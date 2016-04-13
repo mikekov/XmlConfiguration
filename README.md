@@ -41,25 +41,25 @@ var item = config.Root.Items[2];  // get third element under the node <Items>
 Shallow iteration over direct descendants of selected node:
 ```csharp
 foreach (var item in config.GetElements(config.Root.Items))
-    Console.WriteLine(item.Value);
+    Console.WriteLine((string)item.Value);
 ```
 or shorter:
 ```csharp
 foreach (var item in config.Root.Items)
-    Console.WriteLine(item.Value);
+    Console.WriteLine((string)item.Value);
 ```
 
 To iterate over all descendant elements (deep, recursive):
 ```csharp
 foreach (var item in config.GetElements(config.Root.Items, deep: true))
-    Console.WriteLine(item.Value);
+    Console.WriteLine((string)item.Value);
 ```
 
 ##### Iterating over element attributes
 Apart from directly accessing attributes with dot notation, we can also iterate over all of them:
 ```csharp
 foreach (var a in config.GetAttribute(config.Root.Item))
-    Console.WriteLine($"attribute: {a.Name} value: {a.Value}");
+    Console.WriteLine($"attribute: {a.Name} value: {(string)a.Value}");
 ```
 
 ##### Testing nodes for existance
